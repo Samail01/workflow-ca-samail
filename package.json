@@ -17,5 +17,13 @@
   },
   "dependencies": {
     "bootstrap-dark-5": "^1.1.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Samail01/workflow-ca-samail.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Samail01/workflow-ca-samail/issues"
+  },
+  "homepage": "https://github.com/Samail01/workflow-ca-samail#readme"
 }
