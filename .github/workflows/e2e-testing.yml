@@ -30,7 +30,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           start: npm start
-          wait-on: 'http://localhost:3000'
+          wait-on: 'https://samail01.github.io/workflow-ca-samail/'
         env:
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
