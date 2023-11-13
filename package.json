@@ -2,7 +2,6 @@
   "name": "css-frameworks-ca",
   "version": "1.0.0",
   "description": "example",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "test-unit": "jest",
@@ -22,6 +21,7 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.19.3",
+    "@babel/eslint-parser": "^7.23.3",
     "@babel/preset-env": "^7.19.4",
     "cypress": "^13.5.0",
     "dotenv": "^16.3.1",

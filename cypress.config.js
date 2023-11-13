@@ -1,10 +1,8 @@
-import { defineConfig } from 'cypress';
+const { defineConfig } = require('cypress');
 
-export default defineConfig({
+module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      config.env.email = process.env.USER_EMAIL;
-      return config;
       // implement node event listeners here
     },
   },
