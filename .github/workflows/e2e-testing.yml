@@ -10,29 +10,21 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@main
+        uses: actions/checkout@v2
 
-      - name: Setup Node.js environment
+      - name: Set up NodeJS
         uses: actions/setup-node@v2
         with:
           node-version: 16
 
-      - name: Cache Node.js modules
-        uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Cypress Tests
-        uses: cypress-io/github-action@v2
-        with:
-          start: npm start
-          wait-on: 'https://samail01.github.io/workflow-ca-samail/'
+      - name: Build SASS
+        run: npm run build
+
+      - name: Test Build Lint & Format
+        run: npm run lint
 
       - name: Run e2e test
         run: npm run test-e2e
