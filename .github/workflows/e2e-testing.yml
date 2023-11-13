@@ -27,7 +27,7 @@ jobs:
         run: npm run lint
 
       - name: Run e2e test
-        run: npm run test-e2e
+        run: npm run test-e2e-cli
         env:
           CYPRESS_USER_EMAIL: ${{ secrets.USER_EMAIL }}
           CYPRESS_USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
