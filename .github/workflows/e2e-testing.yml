@@ -1,7 +1,8 @@
 name: End-to-End Cypress Tests
 
-on: pull_request:
-    workflow_dispatch:
+on:
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   cypress-run:
