@@ -1,0 +1,33 @@
+name: End-to-End Cypress Tests
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up NodeJS
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build SASS
+        run: npm run build
+
+      - name: Test Build Lint & Format
+        run: npm run lint
+
+      - name: Run e2e test
+        run: npm run test-e2e-cli
+        env:
+          CYPRESS_USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          CYPRESS_USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
