@@ -1,5 +1,6 @@
-//For Login
 require('dotenv/config');
+
+//Login first
 const email = Cypress.env('USER_EMAIL');
 const password = Cypress.env('USER_PASSWORD');
 
@@ -13,19 +14,17 @@ describe('example social media client', () => {
     cy.wait(1000);
     cy.get('#loginEmail').type(`${email}`);
     cy.wait(1000);
-    cy.get('#loginPassword').type(`${password}`);
+    cy.get('#loginPassword').type(`${password}{enter}`);
+    cy.wait(2000);
 
-    cy.get('.btn-success').contains('Login').click();
-    cy.wait(3000);
-  });
-});
-
-/*  //For wrong Login
+    //for Logout
     cy.get(
-      '#registerForm > div.modal-footer > button.btn.btn-outline-success',
+      'body > header > div > div > div > button.btn.btn-outline-warning.me-2',
     ).click();
     cy.wait(1000);
-
-    cy.get('#loginEmail').type('wrong@stud.noroff.no');
-    cy.get('#loginPassword').type('wrongpass123');
-    cy.get('.btn-success').contains('Login').click(); */
+    cy.get('#registerForm .modal-header .modal-title').should(
+      'have.text',
+      'Create Profile',
+    );
+  });
+});
